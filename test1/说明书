@@ -1,1 +1,31 @@
+实验1
+解决：两个字符串或数组组成的序列之间的最长公共子序列LCS。
+运用：动态规划算法去解决问题。
+动态规划一般应用于有最优子结构的问题，局部最优解决定全局最优解。
+
+首先设两个序列：
+序列1：Xi=<x1,x2,•••,xi>即X序列的前i个字符（1<=i<=m）
+序列2：Yj=<y1,y2,•••,yj>即Y序列的前j个字符（1<=j<=n）
+假设Z=<z1,z2,•••,zk>∈LCS（X,Y） zk的长度为k
+•设xm=yn(m=n最后一个字符相同)，则X与Y的任一最长公共子序列Z的最后一个字符，
+zk=xm=yn则Zk-1∈LCS（Xm-1,Yn-1)；Z的前缀Zk-1是Xm-1与Yn-1的最长公共子序列。
+则求Xm-1与Yn-1的LCS LCS(X,Y)的长度等于LCS(Xm-1,Yn-1)的长度+1。
+•设xm≠yn,则Z∈LCS(Xm-1, Y)或Z∈LCS(X , Yn-1)。
+zk≠xm与zk≠yn其中至少有一个必成立，若zk≠xm则Z属于LCS(Xm-1 , Y)；若zk≠yn，则Z∈LCS(X , Yn-1)。
+求Xm-1与Y的LCS及X与Yn-1的LCS。LCS(X , Y)的长度为：max{LCS(Xm-1 , Y)的长度, LCS(X , Yn-1)的长度}。
+由于xm≠yn,LCS(Xm-1 , Y)的长度与LCS(X , Yn-1)的长度,都需求LCS(Xm-1，Yn-1)的长度,为解决这个LCS问题，三个方面的东西要求：1、LCS（Xm-1，Yn-1）+1；2、LCS（Xm-1，Y），LCS（X，Yn-1）；3、max{LCS（Xm-1，Y），LCS（X，Yn-1）}。
+•
+1）当i=0或j=0时，空序列是Xi和Yj的最长公共子序列
+2）当i,j>0,Xi=Yj,则zk=xm=yn，Zk∈LCS（X,Y) 即Zk-1∈LCS（Xm-1,Yn-1)，则Zk=LCS(Xm-1,Yn-1)+1
+3）当i,j>0,Xi≠Yj,则(至少满足一个条件)
+zk≠xm则Z∈LCS(Xm-1 , Y)；zk≠yn，则Z∈LCS(X , Yn-1)；
+                  →max{LCS（Xm-1，Y），LCS（X，Yn-1）}
+
+•最长公共子序列的结构：
+设序列X=<x1, x2, …, xm>和Y=<y1, y2, …, yn>的一个最长公共子序列Z=<z1, z2, …, zk>，
+则：
+1.若xm=yn，则zk=xm=yn且Zk-1是Xm-1和Yn-1的最长公共子序列；
+      2.若xm≠yn且zk≠xm ，则Z是Xm-1和Y的最长公共子序列；
+      3.若xm≠yn且zk≠yn ，则Z是X和Yn-1的最长公共子序列。
+其中Xm-1=<x1, x2, …, xm-1>，Yn-1=<y1, y2, …, yn-1>，Zk-1=<z1, z2, …, zk-1>。
 
