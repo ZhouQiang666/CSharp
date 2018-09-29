@@ -28,8 +28,8 @@ zk≠xm则Z∈LCS(Xm-1 , Y)；zk≠yn，则Z∈LCS(X , Yn-1)；
 •最长公共子序列的结构：
 设序列X=<x1, x2, …, xm>和Y=<y1, y2, …, yn>的一个最长公共子序列Z=<z1, z2, …, zk>，
 则：
-1.若xm=yn，则zk=xm=yn且Zk-1是Xm-1和Yn-1的最长公共子序列；
-2.若xm≠yn且zk≠xm ，则Z是Xm-1和Y的最长公共子序列；
-3.若xm≠yn且zk≠yn ，则Z是X和Yn-1的最长公共子序列。
+  1.若xm=yn，则zk=xm=yn且Zk-1是Xm-1和Yn-1的最长公共子序列；
+  2.若xm≠yn且zk≠xm ，则Z是Xm-1和Y的最长公共子序列；
+  3.若xm≠yn且zk≠yn ，则Z是X和Yn-1的最长公共子序列。
 其中Xm-1=<x1, x2, …, xm-1>，Yn-1=<y1, y2, …, yn-1>，Zk-1=<z1, z2, …, zk-1>。
 
